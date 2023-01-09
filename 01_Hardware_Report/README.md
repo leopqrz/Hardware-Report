@@ -9,5 +9,7 @@
 On Projects/01_Hardware_Report folder run the command lines below 
 
 1 - conda env create -f environment.yaml
+
 2 - conda activate hardware_report
+
 3 - python main.py

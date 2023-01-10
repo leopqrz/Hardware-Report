@@ -6,21 +6,22 @@ import time
 import matplotlib.pyplot as plt
 from report import HardwareReport
 import utils
-import base64
+import fitz
+from PIL import Image
 
-image = "https://i.gifer.com/74pZ.gif"
+img = "https://i.gifer.com/74pZ.gif"
 
 st.set_page_config(
   layout="wide", 
   initial_sidebar_state="expanded",
   page_title="Intro",
-  page_icon=image,
+  page_icon=img,
 )
 with st.spinner('Wait for it...'):
 
     # --------------------------- Layout setting ---------------------------
     window_selection_c = st.sidebar.container() # Create an empty container in the sidebar
-    window_selection_c.image(image, caption='', width=300) # Add the gif image to the sidebar container
+    window_selection_c.image(img, caption='', width=300) # Add the gif image to the sidebar container
     window_selection_c.markdown("# Computer Hardware Report") # Add a title to the sidebar container
     window_selection_c.markdown("### Select the time range to be analyzed:") # Add a subtitle to the sidebar container
     sub_columns = window_selection_c.columns(2) # Split the container into two columns for start and end date
@@ -42,18 +43,21 @@ with st.spinner('Wait for it...'):
     create_report = sub_columns[0].button("Create Report")
 
 
-    def displayPDF(file):
-        # Opening file from file path
-        with open(file, "rb") as f:
-            base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+    def displayPDF(filename):
+        doc = fitz.open(filename)
+        zoom = 4
+        mat = fitz.Matrix(zoom, zoom)
 
-        # Embedding PDF in HTML
-        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf"></iframe>'
+        for i in range(len(doc)):
+            page = doc.load_page(i)
+            pix = page.get_pixmap(matrix=mat)
+            # set the mode depending on alpha
+            mode = "RGBA" if pix.alpha else "RGB"
+            img = Image.frombytes(mode, [pix.width, pix.height], pix.samples)
+            st.image(img, caption='')
 
-        # Displaying File
-        st.markdown(pdf_display, unsafe_allow_html=True)
-
-
+        doc.close()
+    
     if create_report:
         report = HardwareReport(
         start_time=START,

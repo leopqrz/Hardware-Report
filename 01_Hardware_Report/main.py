@@ -42,7 +42,6 @@ with st.spinner('Wait for it...'):
 
     create_report = sub_columns[0].button("Create Report")
 
-
     def displayPDF(filename):
         doc = fitz.open(filename)
         zoom = 4
@@ -55,7 +54,6 @@ with st.spinner('Wait for it...'):
             mode = "RGBA" if pix.alpha else "RGB"
             img = Image.frombytes(mode, [pix.width, pix.height], pix.samples)
             st.image(img, caption='')
-
         doc.close()
     
     if create_report:
@@ -69,7 +67,5 @@ with st.spinner('Wait for it...'):
         network=True
         )
         report.generate_pdf()
-        time.sleep(1)
         displayPDF(report.canvas.filename)
-
         st.success('Done!')

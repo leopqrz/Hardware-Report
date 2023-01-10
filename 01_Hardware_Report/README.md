@@ -1,6 +1,6 @@
-# PC Hardware Report
+# Computer Hardware Report
 
-## It generates a PDF file report containing informations about the computer's hardware, analyzing it within a user defined time period.
+## It generates a PDF file report containing informations about the computer hardware, analyzing it within a user defined time period.
 
 ## For better visualization you can also access my website: [leoqueiroz.com](http://leoqueiroz.com)
 

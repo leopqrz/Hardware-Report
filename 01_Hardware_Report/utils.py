@@ -9,7 +9,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 from matplotlib import pyplot as plt
 import seaborn as sns
 import requests
-
+import datetime as dt
 
 class GraphBuilder:
     """
@@ -84,7 +84,7 @@ class PdfBuilder:
             topMargin: <float> Top margin in inches
             bottomMargin: <float> Bottom margin in inches
         """
-        return SimpleDocTemplate(f"Harware_Report_{current_formatted_time}.pdf",
+        return SimpleDocTemplate(f"Hardware_Report_{current_formatted_time}.pdf",
                                  pagesize=pagesize,
                                  rightMargin=0.5*inch,
                                  leftMargin=0.5*inch,
@@ -170,3 +170,12 @@ class PdfBuilder:
             <object> Object with the final PDF
         """
         canvas.build(parts)
+
+
+
+# General functions
+
+def addMins(tm, mins):
+    fulldate = dt.datetime(100, 1, 1, tm.hour, tm.minute, tm.second, tm.microsecond)
+    fulldate = fulldate + dt.timedelta(minutes=mins)
+    return fulldate.time()

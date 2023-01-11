@@ -39,18 +39,23 @@ class GraphBuilder:
         axes[0].set_title(f'{device} Usage')
         axes[1].set_title(f'Total {device} Usage')
 
-        def fill_plotted_area(axis: list = None, alpha: float = 0.2, **kwargs) -> None:
+        def fill_plotted_area(
+                axis: list = None,
+                alpha: float = 0.2,
+                **kwargs) -> None:
             r"""Display the lineplot with its filled area.
 
             :param axis: List with the values of a axis, defaults to None
-            :param alpha: Transparency level on the filled area, defaults to 0.2
+            :param alpha: Transparency level on the filled area,
+            defaults to 0.2
             """
             if axis is None:
                 axis = plt.gca()
             for line in axis.lines:
                 x_axis, y_axis = line.get_xydata().T
                 axis.fill_between(
-                    x_axis, 0, y_axis, color=line.get_color(), alpha=alpha, **kwargs
+                    x_axis, 0, y_axis, color=line.get_color(),
+                    alpha=alpha, **kwargs
                 )
 
         fill_plotted_area(axis=axes[1], alpha=0.2)
@@ -104,7 +109,9 @@ class PdfBuilder:
         )
 
     def format_text(self, text: str) -> object:
-        r"""Format a text for the PDF file and replace string commands to html formatting.
+        r"""Format the PDF file.
+
+        Replace string commands to html formatting.
 
         e.g:
             "\n" to "<br />"
@@ -128,7 +135,8 @@ class PdfBuilder:
         r"""Format an image for the PDF file.
 
         :param filename: Image filename
-        :param position: Image position (CENTER, LEFT, RIGHT), defaults to 'CENTER'
+        :param position: Image position (CENTER, LEFT, RIGHT),
+        defaults to 'CENTER'
         :param width: Image width in inches, defaults to A4[0]-inch
         :param height: _description_, defaults to (A4[0] - inch)*(8 / 12)
         :return: Object with the formatted image for the PDF
@@ -175,7 +183,8 @@ class PdfBuilder:
         r"""Build the PDF.
 
         :param canvas: Object canvas with the PDF template
-        :param parts: List of objects (str, Image, Table) that are part of the PDF
+        :param parts: List of objects (str, Image, Table)
+        that are part of the PDF
         """
         canvas.build(parts)
 

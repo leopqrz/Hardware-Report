@@ -2,7 +2,6 @@
 import datetime as dt
 
 import fitz
-import matplotlib.pyplot as plt
 import streamlit as st
 import utils
 from PIL import Image

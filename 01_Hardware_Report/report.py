@@ -1,5 +1,5 @@
 """
-Generates a PDF file report containing information about the computer hardware, analyzing it within a user defined time period.
+Generate a PDF file report containing information about the computer hardware.
 
 Check those libraries for additional information:
     https://docs.python.org/3/library/platform.html#platform.system
@@ -32,7 +32,11 @@ stop_time = start_time + dt.timedelta(minutes=1)
 
 
 class HardwareReport:
-    """Generate a PDF file with the computer hardware report with numerical and graphical information of the System, CPU, Memory, Disks and Network."""
+    """Generate a PDF file with the computer hardware report.
+
+    Contain numerical and graphical information of the System, CPU,
+    Memory, Disks and Network.
+    """
 
     def __init__(
         self,
@@ -91,8 +95,8 @@ class HardwareReport:
         """
         self.parts.append(PdfBuilder.format_text(text))
 
-        # CPU and memory have data that vary with the analyzed time and therefore
-        # need to have their values accumulated to generate the final values.
+        # CPU and memory have data that vary with the analyzed time and
+        # therefore need to have their values accumulated for the final values.
         if cpu:
             self.cpu_data = defaultdict(list)  # Accumulate CPU data
         if memory:
@@ -150,8 +154,8 @@ class HardwareReport:
                     self.convert_bytes_to_readable_measurement(self.swap.free)[
                         :-2]
                 )
-                # Append memory used, calculated differently depending on the platform and
-                # designed for informational purposes only
+                # Append memory used, calculated differently depending on the
+                # platform and designed for informational purposes only
                 self.memory_data['Used'].append(
                     float(
                         self.convert_bytes_to_readable_measurement(self.svmem.used)[
@@ -198,15 +202,15 @@ class HardwareReport:
         if self.system:
             """
             System Information with six attributes:
-                System: Return the system/OS name, such as 'Linux', 'Darwin', 'Java', 'Windows'.
-                Node Name: Return the computer’s network name (may not be fully qualified!).
+                System: Return the system/OS name, such as 'Linux', 'Darwin', 'Windows'.
+                Node Name: Return the network name (may not be fully qualified!).
                 Release: Return the system’s release, e.g. '2.2.0' or 'NT'.
                 Version: Return the system’s release version, e.g. '#3 on degas'.
                 Machine: Return the machine type, e.g. 'AMD64'.
                 Processor: Return the (real) processor name, e.g. 'amdk6'.
-                Boot Time: Return the system boot time expressed in seconds since the epoch.
-                           Note on Windows this function may return a time which is off by 1 second
-                           if it’s used across different processes.
+                Boot Time: Return the system boot time in seconds since the epoch.
+                    On Windows this function may return a time which is off by 1 second
+                    if it’s used across different processes.
             """
             # Return a tuple() containing the six system attributes
             uname = platform.uname()
@@ -286,7 +290,8 @@ class HardwareReport:
                 Percentage usage: The percentage usage calculated as:
                                 (total - free) / total * 100
 
-            Ps. Swap memory doesn't have the attribute "available", we use "free".
+            Ps. Swap memory doesn't have the attribute "available",
+            we use "free".
             """
             title1 = ' Memory Information '
             text = f"""{title1.center(91, "=")}\n\n
@@ -332,18 +337,18 @@ class HardwareReport:
             """
             Disk Information with 6 attributes:
                 Device: The device path (e.g. "/dev/hda1").
-                        On Windows this is the drive letter (e.g. "C:\\").
+                    On Windows this is the drive letter (e.g. "C:\\").
                 Mount point: The mount point path (e.g. "/").
-                             On Windows this is the drive letter (e.g. "C:\\").
-                Filesystem type: The partition filesystem (e.g. "ext3" on UNIX or
-                                 "NTFS" on Windows).
+                    On Windows this is the drive letter (e.g. "C:\\").
+                Filesystem type: The partition filesystem (e.g. "ext3" on UNIX
+                    or "NTFS" on Windows).
                 Total: Total space expressed in bytes.
                 Free: Free space expressed in bytes.
                 Percentage usage: Used sapce expressed in Percentage.
             """
-            # Return all mounted disk partitions as a list of named tuples including device,
-            # mount point and filesystem type, similarly to “df” command on
-            # UNIX
+            # Return all mounted disk partitions as a list of named tuples
+            # including device, mount point and filesystem type, similarly
+            # to “df” command on UNIX
             partitions = psutil.disk_partitions()
             title = ' Disk Information '
             text = f"""{title.center(92, "=")}\n\n
@@ -386,11 +391,13 @@ class HardwareReport:
         if self.network:
             """
             Network Information:
-            System-wide network I/O statistics as a named tuple including many attributes.
-            A clone of 'ifconfig' on UNIX.
+            System-wide network I/O statistics as a named tuple including
+            many attributes. A clone of 'ifconfig' on UNIX.
 
-            These part of the code below is based on the Giampaolo Rodola's code.
-                Find it here: https://github.com/giampaolo/psutil/blob/master/scripts/ifconfig.py
+            These part of the code below is based
+            on the Giampaolo Rodola's code.
+            Find it here:
+            https://github.com/giampaolo/psutil/blob/master/scripts/ifconfig.py
 
             lo:
                 stats          : speed=0MB, duplex=?, mtu=65536, up=yes

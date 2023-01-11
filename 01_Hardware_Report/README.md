@@ -12,4 +12,7 @@ On Projects/01_Hardware_Report folder run the command lines below
 
 2 - conda activate hardware_report
 
-3 - python main.py
+3 - streamlit run main.py
+    The app will be openned on your browser and you can folow as seen below:
+
+![Alt Text](https://media.giphy.com/media/8iHxwykOyXfy0XwJiH/giphy.gif)

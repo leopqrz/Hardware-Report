@@ -6,7 +6,7 @@
 
 ### Steps to run this project:
 
-On Projects/01_Hardware_Report folder run the command lines below 
+On Projects/01_Hardware_Report folder run the command lines below
 
 1 - conda env create -f environment.yaml
 

@@ -1,9 +1,7 @@
 # Core
 import streamlit as st
 import datetime as dt
-import time
 # Visualization
-import matplotlib.pyplot as plt
 from report import HardwareReport
 import utils
 import fitz

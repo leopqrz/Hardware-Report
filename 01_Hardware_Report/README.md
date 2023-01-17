@@ -2,7 +2,7 @@
 # Computer Hardware Report
 ---
 
-** Generates a hardware report of the local machine (Desktop or laptop) with Streamlit** [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://hardware-report.streamlit.app/)
+**Generates a hardware report of the local machine (Desktop or laptop) with Streamlit** [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://hardware-report.streamlit.app/)
 <br>
 
 > :warning: **The streamlit link above will launch an app that will run on the local streamlit machine, so it's here for demo purposes only. In order for it to run on your machine, you need to follow the steps below.**

@@ -1,21 +1,20 @@
+---
 # Computer Hardware Report
+---
 
-** Generates a hardware report of the local machine (Desktop or laptop) with Streamlit** [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/whitphx/streamlit-webrtc-example/main/app.py)
+** Generates a hardware report of the local machine (Desktop or laptop) with Streamlit** [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://hardware-report.streamlit.app/)
 <br>
 
-## `Check my website:` [leoqueiroz.com](http://leoqueiroz.com)
+> :warning: **The streamlit link above will launch an app that will run on the local streamlit machine, so it's here for demo purposes only. In order for it to run on your machine, you need to follow the steps below.**
+
 <br>
 
-### Steps to run this project:
-
-- On Projects/01_Hardware_Report folder run the command lines below
-
-  1. conda env create -f environment.yaml
-
-  2. conda activate hardware_report
-
-  3. streamlit run main.py
-     1. The app will be openned on your browser as seen below:
+## Install
+```shell
+$ conda env create -f environment.yaml
+$ conda activate hardware_report
+$ streamlit run main.py
+```
 
 <br>
 

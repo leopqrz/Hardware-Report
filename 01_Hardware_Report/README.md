@@ -1,6 +1,6 @@
 # Computer Hardware Report
 
-## Generates a PDF file report containing informations about the computer hardware, analyzing it within a user defined time period.
+** Generates a hardware report of the local machine (Desktop or laptop) with Streamlit** [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/whitphx/streamlit-webrtc-example/main/app.py)
 <br>
 
 ## `Check my website:` [leoqueiroz.com](http://leoqueiroz.com)

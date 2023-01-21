@@ -2,7 +2,7 @@
 # Charity Classification
 ---
 
-**Classifies a charity among 10 categories with Streamlit** [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://hardware-report.streamlit.app/)
+**Classifies a charity among 10 categories with Streamlit** [![Open in Streamlit](https://charity-class.streamlit.app/)
 <br>
 
 ## Install
@@ -14,4 +14,4 @@ $ streamlit run main.py
 
 <br>
 
-<img src="https://media.giphy.com/media/8iHxwykOyXfy0XwJiH/giphy.gif" width="600">
+<!-- <img src="https://media.giphy.com/media/8iHxwykOyXfy0XwJiH/giphy.gif" width="600"> -->

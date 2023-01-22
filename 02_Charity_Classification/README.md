@@ -2,7 +2,8 @@
 # Charity Classification
 ---
 
-**Classifies a charity among 10 categories with Streamlit** [![Open in Streamlit](https://charity-class.streamlit.app/)
+**Classifies a charity among 10 categories with Streamlit** [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://charity-class.streamlit.app/)
+<br>
 <br>
 
 ## Install

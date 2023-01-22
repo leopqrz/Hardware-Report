@@ -15,4 +15,4 @@ $ streamlit run main.py
 
 <br>
 
-<!-- <img src="https://media.giphy.com/media/8iHxwykOyXfy0XwJiH/giphy.gif" width="600"> -->
+<img src="https://media.giphy.com/media/EMgM2jxa1FH8nf7Z4o/giphy.gif" width="600">

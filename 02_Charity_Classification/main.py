@@ -303,10 +303,9 @@ col1.markdown(
 col2.text('Charity Description')
 txt = col2.text_area('Chariry Description',
                      ''' Working with Oregonians to enhance our quality\
-                        of life by building livable urban and rural\
-                             communities, protecting family farms\
-                                 and forests, and conserving\
-                                     natural areas.
+ of life by building livable urban and rural\
+ communities, protecting family farms\
+ and forests, and conserving natural areas.
 ''',
                      height=200,
                      label_visibility='collapsed'

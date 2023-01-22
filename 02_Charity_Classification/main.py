@@ -216,7 +216,7 @@ feat = ['100', '12', '18', '1971', '1972', '1976', '1977', '1981', '1982',
         'young', 'young people', 'youth', 'youth development'
         ]
 
-with open('model_lr.pkl', 'rb') as f:
+with open('02_Charity_Classification/model_lr.pkl', 'rb') as f:
     model_lr = pickle.load(f)
 
 

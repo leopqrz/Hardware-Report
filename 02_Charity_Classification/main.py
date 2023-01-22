@@ -247,7 +247,7 @@ def run_class_analysis(txt):
     data = df_all.fillna(txt_tfidf)
     data = data.fillna(0)
 
-    with open('outputs/model_lr.pkl', 'rb') as f:
+    with open('model_lr.pkl', 'rb') as f:
         model_lr = pickle.load(f)
 
     cat = model_lr.predict(data)

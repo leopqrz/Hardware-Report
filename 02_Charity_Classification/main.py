@@ -1,12 +1,15 @@
 """docstring."""
 import pickle
 
+import nltk
 import numpy as np
 import pandas as pd
 import streamlit as st
 import utils
 from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import TfidfVectorizer
+
+nltk.download('stopwords')
 
 feat = ['100', '12', '18', '1971', '1972', '1976', '1977', '1981', '1982',
         '1983', '1984', '1985', '1986', '1987', '1988', '1989', '1990',

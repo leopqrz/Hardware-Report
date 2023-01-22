@@ -216,8 +216,11 @@ feat = ['100', '12', '18', '1971', '1972', '1976', '1977', '1981', '1982',
         'young', 'young people', 'youth', 'youth development'
         ]
 
+with open('model_lr.pkl', 'rb') as f:
+    model_lr = pickle.load(f)
 
-def run_class_analysis(txt):
+
+def run_class_analysis(txt, model=model_lr):
     """Classifies a charity description.
 
     :param txt: Charity description text
@@ -247,10 +250,7 @@ def run_class_analysis(txt):
     data = df_all.fillna(txt_tfidf)
     data = data.fillna(0)
 
-    with open('model_lr.pkl', 'rb') as f:
-        model_lr = pickle.load(f)
-
-    cat = model_lr.predict(data)
+    cat = model.predict(data)
 
     category_dict = {
         0: 'Human Services',
